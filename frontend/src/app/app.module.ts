@@ -35,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+    environment.production ?
+      [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
     HttpErrorHandler
