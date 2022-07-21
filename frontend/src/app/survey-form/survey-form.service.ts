@@ -32,7 +32,6 @@ export class SurveyFormService {
       this.handleError = httpErrorHandler.createHandleError('SurveysService');
      }
 
-
      //add survey to server
      addSurvey(survey: Survey): Observable<Survey>{
       return this.http.post<Survey>(this.surveysURL, survey, httpOptions)

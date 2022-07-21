@@ -25,7 +25,6 @@ export class SurveysDisplayService {
       this.handleError = httpErrorHandler.createHandleError('DisplayService');
      }
 
-
      //retrieve surveys from server
      getSurveys(): Observable<Survey[]>{
       return this.http.get<Survey[]>(this.surveysURL)
