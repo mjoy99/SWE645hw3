@@ -15,7 +15,6 @@ import { environment } from '../environments/environment';
 })
 export class SurveysDisplayService {
 
-  baseUrl = environment.baseUrl;
   
   surveysURL='api/surveys/';
   private handleError: HandleError;
@@ -29,7 +28,7 @@ export class SurveysDisplayService {
 
      //retrieve surveys from server
      getSurveys(): Observable<Survey[]>{
-      return this.http.get<Survey[]>(this.baseUrl + this.surveysURL)
+      return this.http.get<Survey[]>(this.surveysURL)
       .pipe(
         catchError(this.handleError('getSurveys', []))
       );
