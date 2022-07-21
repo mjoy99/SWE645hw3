@@ -7,15 +7,12 @@ import { catchError } from 'rxjs/operators';
 
 import { Survey } from './survey';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.services';
-import { environment } from '../environments/environment';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurveysDisplayService {
 
-  
   surveysURL='api/surveys/';
   private handleError: HandleError;
   
@@ -24,7 +21,6 @@ export class SurveysDisplayService {
     httpErrorHandler: HttpErrorHandler) {
       this.handleError = httpErrorHandler.createHandleError('DisplayService');
      }
-
 
      //retrieve surveys from server
      getSurveys(): Observable<Survey[]>{

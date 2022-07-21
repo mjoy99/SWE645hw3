@@ -20,7 +20,6 @@ const httpOptions = {
 })
 export class SurveyFormService {
 
-
   surveysURL='api/surveys/';
   private handleError: HandleError;
   
@@ -29,7 +28,6 @@ export class SurveyFormService {
     httpErrorHandler: HttpErrorHandler) {
       this.handleError = httpErrorHandler.createHandleError('SurveysService');
      }
-
 
      //add survey to server
      addSurvey(survey: Survey): Observable<Survey>{
