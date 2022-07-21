@@ -30,4 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Docker
 
 The dockerfile contains a multistage docker build for building in production mode and deploying with the final image base using Nginx:alpine as a base .  
-Run 'docker build .' to build the image.  This image exposes port 80.
+Run `docker build .` to build the image.  This image exposes port 80.
