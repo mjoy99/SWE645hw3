@@ -15,6 +15,7 @@ export class Survey {
   }
 
   export class Address {
+    
     constructor(
       public street: string="",
       public city: string="",
@@ -22,25 +23,4 @@ export class Survey {
       public zip: number=12345
     ){}
   }
-
-  /**
-   * 	surveyID
-   *  first_name
-   *  last_name
-   *  address
-   *  city
-   *  state
-   *  zip
-   *  phone_number
-   *  email
-   *  date
-   *  like_students
-   *  like_location
-   *  like_campus
-   *  like_atmosphere
-   *  like_dorm_rooms
-   *  like_sports
-   *  interest
-   *  will_recommend
-   */
   

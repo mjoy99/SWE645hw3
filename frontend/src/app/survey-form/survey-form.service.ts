@@ -8,8 +8,6 @@ import { catchError } from 'rxjs/operators';
 import { Survey } from '../surveys-display/survey'
 import { HttpErrorHandler, HandleError } from '../http-error-handler.services';
 
-import { environment } from '../../environments/environment';
-
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -21,9 +19,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class SurveyFormService {
-  
 
-  surveysURL=environment.baseUrl+'api/surveys/';
+  surveysURL='api/surveys/';
   private handleError: HandleError;
   
   constructor(

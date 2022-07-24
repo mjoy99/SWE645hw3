@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "surveys")
+@Table(name = "survey")
 @XmlRootElement
 public class Survey implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,21 +17,22 @@ public class Survey implements Serializable {
 	@Basic(optional = false)
 	@NotNull
 	@Size(min = 1, max = 300)
-	@Column(name = "survey_id")
+	@Column(name = "id")
 	private Long id;
 	
 	@Basic(optional = false)
 	@NotNull
 	@Size(max = 50)
-	@Column(name = "first_name")
+	@Column(name = "fname")
 	private String first_name;
 	
 	@Basic(optional = false)
 	@NotNull
 	@Size(max = 50)
-	@Column(name = "last_name")
+	@Column(name = "lname")
 	private String last_name;
 	
+	/**
 	@Basic(optional = false)
 	@NotNull
 	@Size(max = 50)
@@ -55,11 +56,12 @@ public class Survey implements Serializable {
 	@Size(max = 5)
 	@Column(name = "zip")
 	private String zip;
+	**/
 	
 	@Basic(optional = false)
 	@NotNull
 	@Size(max = 12)
-	@Column(name = "phone_number")
+	@Column(name = "telephone")
 	private String phone_number;
 	
 	@Basic(optional = false)
@@ -70,55 +72,35 @@ public class Survey implements Serializable {
 	
 	@Basic(optional = false)
 	@NotNull
-	@Column(name = "survey_date")
+	@Column(name = "date")
 	private String date;
 	
-	@Column(name = "like_students")
-	private int like_students;
-	
-	@Column(name = "like_location")
-	private int like_location;
-	
-	@Column(name = "like_campus")
-	private int like_campus;
-	
-	@Column(name = "like_atmosphere")
-	private int like_atmosphere;
-	
-	@Column(name = "like_dorm_rooms")
-	private int like_dorm_rooms;
-	
-	@Column(name = "like_sports")
-	private int like_sports;
+	@Size(max = 50)
+	@Column(name = "qualities")
+	private String qualities;
 	
 	@Size(max = 20)
-	@Column(name = "interest")
+	@Column(name = "referral")
 	private String interest;
 	
 	@Size(max = 20)
-	@Column(name = "will_recommend")
+	@Column(name = "satisfaction")
 	private String will_recommend;
 	
 	Survey() {}
 	
-	Survey(Long id, String first_name, String last_name, String address, String city, String state, String zip, String phone_number, String email, String survey_date,
-			int like_students, int like_location, int like_campus, int like_atmosphere, int like_dorm_rooms, int like_sports, String interest, String will_recommend) {
+	Survey(Long id, String first_name, String last_name, String address, String city, String state, String zip, String phone_number, String email, String survey_date, String qualities, String interest, String will_recommend) {
 		this.id = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
+		//this.address = address;
+		//this.city = city;
+		//this.state = state;
+		//this.zip = zip;
 		this.phone_number = phone_number;
 		this.email = email;
 		this.date = survey_date;
-		this.like_students = like_students;
-		this.like_location = like_location;
-		this.like_campus = like_campus;
-		this.like_atmosphere = like_atmosphere;
-		this.like_dorm_rooms = like_dorm_rooms;
-		this.like_sports = like_sports;
+		this.qualities = qualities;
 		this.interest = interest;
 		this.will_recommend = will_recommend;
 	}
@@ -147,6 +129,7 @@ public class Survey implements Serializable {
 		this.last_name = last_name;
 	}
 
+	/**
 	public String getAddress() {
 		return address;
 	}
@@ -178,7 +161,8 @@ public class Survey implements Serializable {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-
+	**/
+	
 	public String getPhoneNumber() {
 		return phone_number;
 	}
@@ -203,54 +187,14 @@ public class Survey implements Serializable {
 		this.date = date;
 	}
 
-	public int getLikeStudents() {
-		return like_students;
+	public String getQualities() {
+		return qualities;
 	}
 
-	public void setLikeStudents(int like_students) {
-		this.like_students = like_students;
+	public void setQualities(String qualities) {
+		this.qualities = qualities;
 	}
-
-	public int getLikeLocation() {
-		return like_location;
-	}
-
-	public void setLikeLocation(int like_location) {
-		this.like_location = like_location;
-	}
-
-	public int getLikeCampus() {
-		return like_campus;
-	}
-
-	public void setLikeCampus(int like_campus) {
-		this.like_campus = like_campus;
-	}
-
-	public int getLikeAtmosphere() {
-		return like_atmosphere;
-	}
-
-	public void setLikeAtmosphere(int like_atmosphere) {
-		this.like_atmosphere = like_atmosphere;
-	}
-
-	public int getLikeDormRooms() {
-		return like_dorm_rooms;
-	}
-
-	public void setLikeDormRooms(int like_dorm_rooms) {
-		this.like_dorm_rooms = like_dorm_rooms;
-	}
-
-	public int getLikeSports() {
-		return like_sports;
-	}
-
-	public void setLikeSports(int like_sports) {
-		this.like_sports = like_sports;
-	}
-
+	
 	public String getInterest() {
 		return interest;
 	}
@@ -277,28 +221,22 @@ public class Survey implements Serializable {
 		return  (Objects.equals(this.id, o.id) &&
 				Objects.equals(this.first_name, o.first_name) &&
 				Objects.equals(this.last_name, o.last_name) && 
-				Objects.equals(this.address, o.address) && 
-				Objects.equals(this.city, o.city) && 
-				Objects.equals(this.state, o.state) && 
-				Objects.equals(this.zip, o.zip) && 
+				//Objects.equals(this.address, o.address) && 
+				//Objects.equals(this.city, o.city) && 
+				//Objects.equals(this.state, o.state) && 
+				//Objects.equals(this.zip, o.zip) && 
 				Objects.equals(this.phone_number, o.phone_number) && 
 				Objects.equals(this.email, o.email) && 
 				Objects.equals(this.date, o.date) && 
-				Objects.equals(this.like_students, o.like_students) && 
-				Objects.equals(this.like_location, o.like_location) && 
-				Objects.equals(this.like_campus, o.like_campus) && 
-				Objects.equals(this.like_atmosphere, o.like_atmosphere) && 
-				Objects.equals(this.like_dorm_rooms, o.like_dorm_rooms) && 
-				Objects.equals(this.like_sports, o.like_sports) && 
+				Objects.equals(this.qualities, o.qualities) && 
 				Objects.equals(this.interest, o.interest) && 
 				Objects.equals(this.will_recommend, o.will_recommend));
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.id, this.first_name, this.last_name, this.address,	this.city, this.state, this.zip, this.phone_number,
-							this.email, this.date, this.like_students, this.like_location, this.like_campus,	this.like_atmosphere,
-							this.like_dorm_rooms, this.like_sports,	this.interest, this.will_recommend);
+		return Objects.hash(this.id, this.first_name, this.last_name, /**this.address,	this.city, this.state, this.zip,*/ this.phone_number,
+							this.email, this.date, this.interest, this.will_recommend);
 	}
 	
 	@Override

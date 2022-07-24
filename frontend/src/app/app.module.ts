@@ -14,7 +14,6 @@ import { SurveysDisplayComponent } from './surveys-display/surveys-display.compo
 import { HttpErrorHandler } from './http-error-handler.services';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
-import { environment } from './../environments/environment';
 
 
 @NgModule({
@@ -36,7 +35,7 @@ import { environment } from './../environments/environment';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    environment.production ? []: HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
     HttpErrorHandler

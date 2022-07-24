@@ -19,12 +19,12 @@ public class SurveyController {
         this.repository = repository;
     }
 
-    @GetMapping ("/surveys")
+    @GetMapping ("/survey")
     List<Survey> getAll() {
         return repository.findAll();
     }
 
-    @PostMapping("/surveys")
+    @PostMapping("/survey")
     Survey addSurvey(@RequestBody Survey newSurvey) {
         return repository.save(newSurvey);
     }

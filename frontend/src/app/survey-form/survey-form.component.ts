@@ -59,24 +59,20 @@ export class SurveyFormComponent implements OnInit {
     }
     
     const newSurvey = {
-      survey_id : NaN,
-      first_name : this.model.fname,
-      last_name : this.model.lname,
-      street: this.model.address.street,
-      city: this.model.address.city,
-      state: this.model.address.state,
-      zip: this.model.address.zip,
-      phone_number : this.model.telephone,
+      id : NaN,
+      fname : this.model.fname,
+      lname : this.model.lname,
+      telephone : this.model.telephone,
       email : this.model.email,
-      date: this.model.surveydate,
-      like_students: 0,
-      like_location: 0,
-      like_campus: 0,
-      like_atmosphere: 0,
-      like_dorm_rooms: 0,
-      like_sports: 0,
-      interest: this.model.satisfaction,
-      will_recommend : this.model.referral
+      surveydate: this.model.surveydate,
+      referral : this.model.referral,
+      satisfaction: this.model.satisfaction,
+      qualities : this.model.qualities,
+      address: {
+        street: this.model.address.street,
+        city: this.model.address.city,
+        state: this.model.address.state,
+        zip: this.model.address.zip}
     };
 
     
