@@ -70,7 +70,7 @@ public class Survey implements Serializable {
 	
 	@Basic(optional = false)
 	@NotNull
-	@Column(name = "date")
+	@Column(name = "survey_date")
 	private String date;
 	
 	@Column(name = "like_students")

@@ -1,32 +1,33 @@
 <table id="surveys">
 <tr>
-    <th>survey ID</th>
-    <th> First Name</th>
-    <th> Last Name</th>
+    <th>Survey ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Address</th>
     <th>City</th>
     <th>State</th>
+    <th>Zip</th>
     <th>Telephone #</th>
-   <th>Email</th>
-   <th>Date of Surve</th>
-   <th>Referred From</th>
+    <th>Email</th>
+    <th>Date of Surve</th>
+    <th>Referred From</th>
     <th>satisfaction</th>
     <th>Things they like</th>
 </tr>
 <tr *ngFor="let survey of surveys">
-        <td>{{survey.id}}</td>
-        <td>{{survey.fname}}</td>
-        <td>{{survey.lname}}</td>
-        <td>{{survey.address.street}}</td>
-        <td>{{survey.address.city}}</td>
-        <td>{{survey.address.state}}</td>
-       <td> {{survey.telephone}} </td>
-       <td> {{survey.email}}</td>
-        <td>{{survey.surveydate}}</td>
-       <td>{{survey.referral}}</td>
-       <td>{{survey.satisfaction}}</td>
-        <td>{{survey.qualities}}</td>
-           
+        <td>{{survey.survey_id}}</td>
+        <td>{{survey.first_name}}</td>
+        <td>{{survey.last_name}}</td>
+        <td>{{survey.street}}</td>
+        <td>{{survey.city}}</td>
+        <td>{{survey.state}}</td>
+        <td>{{survey.zip}}</td>
+        <td>{{survey.phone_number}} </td>
+        <td>{{survey.email}}</td>
+        <td>{{survey.date}}</td>
+        <td>{{[survey.like_students, survey.like_location, survey.like_campus, survey.like_atmosphere, survey.like_dorm_rooms, survey.like_sports]}}</td>     
+        <td>{{survey.will_recommend}}</td>
+        <td>{{survey.interest}}</td>
 </tr>
 </table>
 
