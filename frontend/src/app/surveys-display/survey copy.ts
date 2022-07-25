@@ -1,5 +1,4 @@
 export class Survey {
-   
   constructor(
     public id: number=99,
     public fname: string="",
@@ -15,7 +14,6 @@ export class Survey {
   }
 
   export class Address {
-    
     constructor(
       public street: string="",
       public city: string="",

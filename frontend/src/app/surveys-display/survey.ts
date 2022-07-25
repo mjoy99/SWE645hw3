@@ -1,6 +1,4 @@
 export interface Survey {
-   
-
      id: number;
      fname: string;
      lname: string;
@@ -11,16 +9,12 @@ export interface Survey {
      referral: string;
      satisfaction: string;
      qualities: string[];
-    
   }
 
   export interface Address {
-    
- 
        street: string;
        city: string;
        state: string;
        zip: any;
-   
   }
   

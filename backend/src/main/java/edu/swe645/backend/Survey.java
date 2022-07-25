@@ -1,5 +1,6 @@
 package edu.swe645.backend;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.io.Serializable;
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "survey")
+@Table(name = "surveys")
 @XmlRootElement
 public class Survey implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -32,7 +33,6 @@ public class Survey implements Serializable {
 	@Column(name = "lname")
 	private String last_name;
 	
-	/**
 	@Basic(optional = false)
 	@NotNull
 	@Size(max = 50)
@@ -56,7 +56,6 @@ public class Survey implements Serializable {
 	@Size(max = 5)
 	@Column(name = "zip")
 	private String zip;
-	**/
 	
 	@Basic(optional = false)
 	@NotNull
@@ -77,7 +76,7 @@ public class Survey implements Serializable {
 	
 	@Size(max = 50)
 	@Column(name = "qualities")
-	private String qualities;
+	private ArrayList<String> qualities;
 	
 	@Size(max = 20)
 	@Column(name = "referral")
@@ -89,14 +88,14 @@ public class Survey implements Serializable {
 	
 	Survey() {}
 	
-	Survey(Long id, String first_name, String last_name, String address, String city, String state, String zip, String phone_number, String email, String survey_date, String qualities, String interest, String will_recommend) {
+	Survey(Long id, String first_name, String last_name, String address, String city, String state, String zip, String phone_number, String email, String survey_date, ArrayList<String> qualities, String interest, String will_recommend) {
 		this.id = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
-		//this.address = address;
-		//this.city = city;
-		//this.state = state;
-		//this.zip = zip;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
 		this.phone_number = phone_number;
 		this.email = email;
 		this.date = survey_date;
@@ -129,7 +128,6 @@ public class Survey implements Serializable {
 		this.last_name = last_name;
 	}
 
-	/**
 	public String getAddress() {
 		return address;
 	}
@@ -161,7 +159,6 @@ public class Survey implements Serializable {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	**/
 	
 	public String getPhoneNumber() {
 		return phone_number;
@@ -187,11 +184,11 @@ public class Survey implements Serializable {
 		this.date = date;
 	}
 
-	public String getQualities() {
+	public ArrayList<String> getQualities() {
 		return qualities;
 	}
 
-	public void setQualities(String qualities) {
+	public void setQualities(ArrayList<String> qualities) {
 		this.qualities = qualities;
 	}
 	
@@ -221,10 +218,10 @@ public class Survey implements Serializable {
 		return  (Objects.equals(this.id, o.id) &&
 				Objects.equals(this.first_name, o.first_name) &&
 				Objects.equals(this.last_name, o.last_name) && 
-				//Objects.equals(this.address, o.address) && 
-				//Objects.equals(this.city, o.city) && 
-				//Objects.equals(this.state, o.state) && 
-				//Objects.equals(this.zip, o.zip) && 
+				Objects.equals(this.address, o.address) && 
+				Objects.equals(this.city, o.city) && 
+				Objects.equals(this.state, o.state) && 
+				Objects.equals(this.zip, o.zip) && 
 				Objects.equals(this.phone_number, o.phone_number) && 
 				Objects.equals(this.email, o.email) && 
 				Objects.equals(this.date, o.date) && 
@@ -235,7 +232,7 @@ public class Survey implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.id, this.first_name, this.last_name, /**this.address,	this.city, this.state, this.zip,*/ this.phone_number,
+		return Objects.hash(this.id, this.first_name, this.last_name, this.address,	this.city, this.state, this.zip, this.phone_number,
 							this.email, this.date, this.interest, this.will_recommend);
 	}
 	

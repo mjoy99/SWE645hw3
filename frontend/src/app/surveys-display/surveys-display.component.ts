@@ -9,9 +9,9 @@ import { SurveysDisplayService } from './surveys-display.service';
   providers:[SurveysDisplayService],
   styleUrls: ['./surveys-display.component.css']
 })
+
 export class SurveysDisplayComponent implements OnInit {
   surveys:Survey[]=[];
-
 
   constructor(private surveysDisplayService:SurveysDisplayService) { }
 

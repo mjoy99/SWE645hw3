@@ -23,7 +23,7 @@ const httpOptions = {
 export class SurveyFormService {
   
 
-  surveysURL=environment.baseUrl+'api/surveys/';
+  surveysURL=environment.baseUrl+'surveys';
   private handleError: HandleError;
   
   constructor(
