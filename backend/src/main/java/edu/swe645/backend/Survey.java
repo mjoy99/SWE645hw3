@@ -23,25 +23,25 @@ public class Survey implements Serializable {
 	
 	@Basic(optional = false)
 	@NotNull
-	@Size(max = 50)
+	@Size(max = 20)
 	@Column(name = "fname")
 	private String first_name;
 	
 	@Basic(optional = false)
 	@NotNull
-	@Size(max = 50)
+	@Size(max = 20)
 	@Column(name = "lname")
 	private String last_name;
 	
 	@Basic(optional = false)
 	@NotNull
-	@Size(max = 50)
+	@Size(max = 30)
 	@Column(name = "address")
 	private String address;
 	
 	@Basic(optional = false)
 	@NotNull
-	@Size(max = 50)
+	@Size(max = 20)
 	@Column(name = "city")
 	private String city;
 	
@@ -65,12 +65,13 @@ public class Survey implements Serializable {
 	
 	@Basic(optional = false)
 	@NotNull
-	@Size(max = 50)
+	@Size(max = 30)
 	@Column(name = "email")
 	private String email;
 	
 	@Basic(optional = false)
 	@NotNull
+	@Size(max = 30)
 	@Column(name = "date")
 	private String date;
 	
