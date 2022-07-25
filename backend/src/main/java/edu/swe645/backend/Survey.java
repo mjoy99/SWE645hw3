@@ -74,9 +74,9 @@ public class Survey implements Serializable {
 	@Column(name = "date")
 	private String date;
 	
-	@Size(max = 50)
+	@Size(max = 200)
 	@Column(name = "qualities")
-	private ArrayList<String> qualities;
+	private String qualities;
 	
 	@Size(max = 20)
 	@Column(name = "referral")
@@ -88,7 +88,7 @@ public class Survey implements Serializable {
 	
 	Survey() {}
 	
-	Survey(Long id, String first_name, String last_name, String address, String city, String state, String zip, String phone_number, String email, String survey_date, ArrayList<String> qualities, String interest, String will_recommend) {
+	Survey(Long id, String first_name, String last_name, String address, String city, String state, String zip, String phone_number, String email, String survey_date, String qualities, String interest, String will_recommend) {
 		this.id = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -184,11 +184,11 @@ public class Survey implements Serializable {
 		this.date = date;
 	}
 
-	public ArrayList<String> getQualities() {
+	public String getQualities() {
 		return qualities;
 	}
 
-	public void setQualities(ArrayList<String> qualities) {
+	public void setQualities(String qualities) {
 		this.qualities = qualities;
 	}
 	

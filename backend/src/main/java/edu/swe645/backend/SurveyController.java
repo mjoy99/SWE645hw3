@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.*;
 
-@CrossOrigin
 @RestController
 @Path("swe645hw3")
 public class SurveyController {
@@ -21,6 +20,7 @@ public class SurveyController {
         this.repository = repository;
     }
 
+    @CrossOrigin
     @GetMapping ("/surveys")
     List<Survey> getAll() {
         return repository.findAll();
