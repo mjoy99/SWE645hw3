@@ -27,12 +27,12 @@ export class SurveyFormComponent implements OnInit {
     referral : '',
     satisfaction: '',
     qualities : [''],
-    address: {
-      street: '',
-      city: '',
-      state: '',
-      zip: ''
-    }
+    address: '',
+    street: '',
+    city: '',
+    state: '',
+    zip: ''
+    
   }
   surveys: Survey[]=[];
 
@@ -68,11 +68,10 @@ export class SurveyFormComponent implements OnInit {
       referral : this.model.referral,
       satisfaction: this.model.satisfaction,
       qualities : this.model.qualities,
-      address: {
-        street: this.model.address.street,
-        city: this.model.address.city,
-        state: this.model.address.state,
-        zip: this.model.address.zip}
+      address: this.model.address,
+      city: this.model.city,
+      state: this.model.state,
+      zip: this.model.zip
     };
 
     

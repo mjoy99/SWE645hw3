@@ -2,7 +2,10 @@ export interface Survey {
      id: number;
      fname: string;
      lname: string;
-     address: Address;
+     address: string;
+     city: string;
+     state: string;
+     zip: string;
      telephone: string;
      email: string;
      surveydate: any;
@@ -11,10 +14,4 @@ export interface Survey {
      qualities: string[];
   }
 
-  export interface Address {
-       street: string;
-       city: string;
-       state: string;
-       zip: any;
-  }
   
