@@ -1,7 +1,7 @@
 <div class="container">
     <!--div [hidden]="submitted"-->
     <h1>Student Survey</h1>
-    <form #surveyForm="ngForm">
+    <form #surveyForm="ngForm" (ngSubmit)="onSubmit()">
         <table class="form-group">
             <tr>
                 <td>
@@ -82,8 +82,7 @@
         <table>
             <tr>
                 <td>
-        <button type="submit" class="btn btn-success" [disabled]="!surveyForm.form.valid" 
-            (click)="onSubmit()">Submit</button>
+        <button type="submit" class="btn btn-success" [disabled]="!surveyForm.form.valid" >Submit</button>
                 </td>
                 <td>
         <button type="button" class="btn btn-default" (click)="surveyForm.reset()">Cancel</button>
