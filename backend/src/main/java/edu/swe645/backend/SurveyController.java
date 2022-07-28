@@ -28,7 +28,7 @@ public class SurveyController {
 
     @CrossOrigin
     @PostMapping ("/surveys")
-    Survey addSurvey(Survey newSurvey) {
+    Survey addSurvey(@RequestBody Survey newSurvey) {
         return repository.save(newSurvey);
     }
 }
