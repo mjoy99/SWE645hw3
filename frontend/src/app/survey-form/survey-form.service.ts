@@ -10,12 +10,6 @@ import { HttpErrorHandler, HandleError } from '../http-error-handler.services';
 
 import { environment } from '../../environments/environment';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    Authorization: 'my-auth-token'
-  })
-};
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +28,7 @@ export class SurveyFormService {
 
      //add survey to server
      addSurvey(survey: Survey): Observable<Survey>{
-      return this.http.post<Survey>(this.surveysURL, survey, httpOptions)
+      return this.http.post<Survey>(this.surveysURL, survey)
        .pipe(
          catchError(this.handleError('addSurvey',survey))
        );
