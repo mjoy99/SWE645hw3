@@ -11,7 +11,7 @@ export interface Survey {
      surveydate: any;
      referral: string;
      satisfaction: string;
-     qualities: string[];
+     qualities: string;
   }
 
   
