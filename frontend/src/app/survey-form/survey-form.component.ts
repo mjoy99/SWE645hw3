@@ -58,6 +58,7 @@ export class SurveyFormComponent implements OnInit {
       this.model.qualities.splice(0,1);
     }
     
+    
     const newSurvey = {
       id : NaN,
       fname : this.model.fname,
@@ -67,7 +68,7 @@ export class SurveyFormComponent implements OnInit {
       surveydate: this.model.surveydate,
       referral : this.model.referral,
       satisfaction: this.model.satisfaction,
-      qualities : this.model.qualities,
+      qualities : this.model.qualities.toString(),
       address: this.model.address,
       city: this.model.city,
       state: this.model.state,
@@ -83,7 +84,6 @@ export class SurveyFormComponent implements OnInit {
    this.router.navigateByUrl('/survey-list');
   }
 
-  addSurvey(): void { }
 
   getSurveys(): void {
     this.surveysDisplayService.getSurveys()
