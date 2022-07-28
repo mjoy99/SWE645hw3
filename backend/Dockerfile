@@ -1,6 +1,7 @@
-#This is a sample Image
-FROM tomcat
+FROM openjdk:11
 
-RUN mkdir /usr/local/tomcat/webapps
+ADD target/backend-0.0.1-SNAPSHOT.jar backend-0.0.1-SNAPSHOT.jar
 
-COPY backend.war /usr/local/tomcat/webapps/
+EXPOSE 5000
+
+ENTRYPOINT ["java", "-jar", "backend-0.0.1-SNAPSHOT.jar"]

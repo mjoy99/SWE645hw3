@@ -1,2 +1,4 @@
 
 backend/src/main/resources/application.properties
+/.metadata/
+backend/target/classes/application.properties
