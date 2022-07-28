@@ -74,17 +74,16 @@ export class SurveyFormComponent implements OnInit {
       zip: this.model.zip
     };
 
-    
     this.formService
       .addSurvey(newSurvey)
       .subscribe(survey=>console.log(survey));
-
+      
    this.getSurveys();
 
    this.router.navigateByUrl('/survey-list');
   }
 
-  addSurvey(): void {}
+  addSurvey(): void { }
 
   getSurveys(): void {
     this.surveysDisplayService.getSurveys()

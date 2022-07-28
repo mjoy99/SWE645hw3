@@ -14,7 +14,7 @@ import javax.ws.rs.*;
 @Path("swe645hw3")
 public class SurveyController {
     
-    private final SurveyRepository repository;
+    private SurveyRepository repository;
 
     SurveyController(SurveyRepository repository) {
         this.repository = repository;
@@ -26,8 +26,9 @@ public class SurveyController {
         return repository.findAll();
     }
 
+    @CrossOrigin
     @PostMapping ("/surveys")
-    Survey addSurvey(@RequestBody Survey newSurvey) {
+    Survey addSurvey(Survey newSurvey) {
         return repository.save(newSurvey);
     }
 }

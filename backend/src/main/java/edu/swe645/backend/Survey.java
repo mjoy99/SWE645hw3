@@ -1,6 +1,5 @@
 package edu.swe645.backend;
 
-import java.util.ArrayList;
 import java.util.Objects;
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,65 +14,54 @@ public class Survey implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Basic(optional = false)
-	@NotNull
-	@Size(min = 1, max = 300)
-	@Column(name = "id")
+	@Column(name = "id", unique = true, nullable = false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 20)
 	@Column(name = "fname")
-	private String first_name;
+	private String fname;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 20)
 	@Column(name = "lname")
-	private String last_name;
+	private String lname;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 30)
 	@Column(name = "address")
 	private String address;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 20)
 	@Column(name = "city")
 	private String city;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 2)
 	@Column(name = "state")
 	private String state;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 5)
 	@Column(name = "zip")
 	private String zip;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 12)
 	@Column(name = "telephone")
-	private String phone_number;
+	private String telephone;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 30)
 	@Column(name = "email")
 	private String email;
 	
-	@Basic(optional = false)
 	@NotNull
 	@Size(max = 30)
-	@Column(name = "date")
-	private String date;
+	@Column(name = "surveydate")
+	private String surveydate;
 	
 	@Size(max = 200)
 	@Column(name = "qualities")
@@ -81,28 +69,42 @@ public class Survey implements Serializable {
 	
 	@Size(max = 20)
 	@Column(name = "referral")
-	private String interest;
+	private String satisfaction;
 	
 	@Size(max = 20)
 	@Column(name = "satisfaction")
-	private String will_recommend;
+	private String referral;
 	
-	Survey() {}
+	Survey() {
+		this.id = (long) 0;
+		this.fname = "First";
+		this.lname = "Last";
+		this.address = "XXXX NAME STREET";
+		this.city = "CITY";
+		this.state = "XX";
+		this.zip = "XXXXX";
+		this.telephone = "XXX-XXX-XXX";
+		this.email = "XXXXXX@XXXX.XXX";
+		this.surveydate = "XX-XX-XXXX";
+		this.qualities = "XXXX,XXXX,XXXX";
+		this.satisfaction = "GOOD";
+		this.referral = "TELEVISION";
+	}
 	
-	Survey(Long id, String first_name, String last_name, String address, String city, String state, String zip, String phone_number, String email, String survey_date, String qualities, String interest, String will_recommend) {
+	Survey(Long id, String fname, String lname, String address, String city, String state, String zip, String telephone, String email, String surveydate, String qualities, String satisfaction, String referral) {
 		this.id = id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.fname = fname;
+		this.lname = lname;
 		this.address = address;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
-		this.phone_number = phone_number;
+		this.telephone = telephone;
 		this.email = email;
-		this.date = survey_date;
+		this.surveydate = surveydate;
 		this.qualities = qualities;
-		this.interest = interest;
-		this.will_recommend = will_recommend;
+		this.satisfaction = satisfaction;
+		this.referral = referral;
 	}
 	
 	public Long getId() {
@@ -113,20 +115,20 @@ public class Survey implements Serializable {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return first_name;
+	public String getFname() {
+		return fname;
 	}
 
-	public void setFirstName(String first_name) {
-		this.first_name = first_name;
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 
-	public String getLastName() {
-		return last_name;
+	public String getLname() {
+		return lname;
 	}
 
-	public void setLastName(String last_name) {
-		this.last_name = last_name;
+	public void setLname(String lname) {
+		this.lname = lname;
 	}
 
 	public String getAddress() {
@@ -161,12 +163,12 @@ public class Survey implements Serializable {
 		this.zip = zip;
 	}
 	
-	public String getPhoneNumber() {
-		return phone_number;
+	public String getTelephone() {
+		return telephone;
 	}
 
-	public void setPhoneNumber(String phone_number) {
-		this.phone_number = phone_number;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 
 	public String getEmail() {
@@ -177,12 +179,12 @@ public class Survey implements Serializable {
 		this.email = email;
 	}
 
-	public String getDate() {
-		return date;
+	public String getSurveydate() {
+		return surveydate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setSurveydate(String surveydate) {
+		this.surveydate = surveydate;
 	}
 
 	public String getQualities() {
@@ -193,20 +195,20 @@ public class Survey implements Serializable {
 		this.qualities = qualities;
 	}
 	
-	public String getInterest() {
-		return interest;
+	public String getSatisfaction() {
+		return satisfaction;
 	}
 
-	public void setInterest(String interest) {
-		this.interest = interest;
+	public void setSatisfaction(String satisfaction) {
+		this.satisfaction = satisfaction;
 	}
 
-	public String getWillRecommend() {
-		return will_recommend;
+	public String getReferral() {
+		return referral;
 	}
 
-	public void setWillRecommend(String will_recommend) {
-		this.will_recommend = will_recommend;
+	public void setReferral(String referral) {
+		this.referral = referral;
 	}
 	
 	@Override
@@ -217,24 +219,24 @@ public class Survey implements Serializable {
 			return false;
 		Survey o = (Survey) survey;
 		return  (Objects.equals(this.id, o.id) &&
-				Objects.equals(this.first_name, o.first_name) &&
-				Objects.equals(this.last_name, o.last_name) && 
+				Objects.equals(this.fname, o.fname) &&
+				Objects.equals(this.lname, o.lname) && 
 				Objects.equals(this.address, o.address) && 
 				Objects.equals(this.city, o.city) && 
 				Objects.equals(this.state, o.state) && 
 				Objects.equals(this.zip, o.zip) && 
-				Objects.equals(this.phone_number, o.phone_number) && 
+				Objects.equals(this.telephone, o.telephone) && 
 				Objects.equals(this.email, o.email) && 
-				Objects.equals(this.date, o.date) && 
+				Objects.equals(this.surveydate, o.surveydate) && 
 				Objects.equals(this.qualities, o.qualities) && 
-				Objects.equals(this.interest, o.interest) && 
-				Objects.equals(this.will_recommend, o.will_recommend));
+				Objects.equals(this.satisfaction, o.satisfaction) && 
+				Objects.equals(this.referral, o.referral));
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.id, this.first_name, this.last_name, this.address,	this.city, this.state, this.zip, this.phone_number,
-							this.email, this.date, this.interest, this.will_recommend);
+		return Objects.hash(this.id, this.fname, this.lname, this.address,	this.city, this.state, this.zip, this.telephone,
+							this.email, this.surveydate, this.satisfaction, this.referral);
 	}
 	
 	@Override
