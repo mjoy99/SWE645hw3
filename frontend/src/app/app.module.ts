@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,7 @@ import { HttpErrorHandler } from './http-error-handler.services';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { environment } from './../environments/environment';
+import { AppConfig, initConfig } from './app.service';
 
 
 @NgModule({
@@ -39,7 +40,14 @@ import { environment } from './../environments/environment';
     environment.production ? []: HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
-    HttpErrorHandler
+    HttpErrorHandler,
+    AppConfig,
+    {
+      provide: APP_INITIALIZER, 
+      useFactory: initConfig, 
+      deps: [ AppConfig ], 
+      multi: true
+  },
   ],
   bootstrap: [AppComponent]
 })

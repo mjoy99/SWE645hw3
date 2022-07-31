@@ -8,24 +8,32 @@ import { Survey } from './survey';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.services';
 
 import { environment } from '../../environments/environment';
+import { AppConfig } from '../app.service';
+import { config } from 'src/assets/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurveysDisplayService {
 
-  surveysURL=environment.baseUrl+'surveys';
+  
+  private baseUrl = '';
+  private surveyURL = '';
+
   private handleError: HandleError;
   
   constructor(
     private http: HttpClient, 
-    httpErrorHandler: HttpErrorHandler) {
+    httpErrorHandler: HttpErrorHandler, 
+    private appConfig: AppConfig) {
       this.handleError = httpErrorHandler.createHandleError('DisplayService');
+      this.baseUrl = config.url;
+      this.surveyURL = this.baseUrl + '/surveys'; 
     }
 
      //retrieve surveys from server
      getSurveys(): Observable<Survey[]>{
-      return this.http.get<Survey[]>(this.surveysURL).pipe(
+      return this.http.get<Survey[]>(this.surveyURL).pipe(
         catchError(this.handleError('getSurveys', []))
       );
      }

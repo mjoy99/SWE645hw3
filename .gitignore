@@ -1,2 +1,6 @@
 
 backend/src/main/resources/application.properties
+backend/src/main/resources/application copy.properties
+frontend/backend.env
+frontend/docker-compose.yml
+frontend/Dockerfile

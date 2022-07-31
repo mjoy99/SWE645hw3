@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
-import {firstValueFrom} from 'rxjs';
+
 
 interface Config{
   url: string;
@@ -9,7 +8,7 @@ interface Config{
 
 export interface IAppConfig{
   baseURL:string;
-  load: () => Promise<void>;
+  load: () => Promise<any>;
 }
 
 
@@ -19,12 +18,13 @@ export class AppConfig implements IAppConfig {
 
     constructor(private readonly http: HttpClient) { }
 
-    public load(): Promise<void> {
-        return this.http
-        .get<Config>('assets/config.json')
-        .toPromise()
-        .then(config=>{
-          this.baseURL=config.url;
+    public load(): Promise<any> {
+        return new Promise((resolve, reject)=>{
+          this.http.get<Config>('assets/config.json')
+          .subscribe((response:any)=>{
+            this.baseURL = response?.url;
+            resolve(true);
+          });
         });
     } 
   
