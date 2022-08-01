@@ -4,3 +4,4 @@ backend/src/main/resources/application copy.properties
 frontend/backend.env
 frontend/docker-compose.yml
 frontend/Dockerfile
+ec2 Rancher.txt

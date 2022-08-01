@@ -9,7 +9,7 @@ import { HttpErrorHandler, HandleError } from '../http-error-handler.services';
 
 import { environment } from '../../environments/environment';
 import { AppConfig } from '../app.service';
-import { config } from 'src/assets/config';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,8 @@ export class SurveysDisplayService {
     httpErrorHandler: HttpErrorHandler, 
     private appConfig: AppConfig) {
       this.handleError = httpErrorHandler.createHandleError('DisplayService');
-      this.baseUrl = config.url;
+      environment.production ? this.baseUrl = appConfig.baseURL :
+      this.baseUrl=environment.baseUrl;
       this.surveyURL = this.baseUrl + '/surveys'; 
     }
 
