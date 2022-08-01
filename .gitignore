@@ -1,6 +1,7 @@
 
 backend/src/main/resources/application.properties
-/.metadata/
-backend/target/classes/application.properties
-frontend/docker-compose.yml
 backend/src/main/resources/application copy.properties
+frontend/backend.env
+frontend/docker-compose.yml
+frontend/Dockerfile
+ec2 Rancher.txt
